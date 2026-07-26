@@ -1,0 +1,136 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Biology-inspired soft green / blue / white palette */
+    --background: 150 40% 99%;
+    --foreground: 200 30% 14%;
+    --card: 0 0% 100%;
+    --card-foreground: 200 30% 14%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 200 30% 14%;
+    --primary: 152 52% 40%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 199 85% 95%;
+    --secondary-foreground: 205 55% 28%;
+    --muted: 150 24% 96%;
+    --muted-foreground: 200 18% 42%;
+    --accent: 199 72% 48%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 78% 58%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 150 22% 90%;
+    --input: 150 22% 90%;
+    --ring: 152 52% 40%;
+    --radius: 0.75rem;
+
+    --chart-1: 152 52% 40%;
+    --chart-2: 199 72% 48%;
+    --chart-3: 173 58% 45%;
+    --chart-4: 43 74% 56%;
+    --chart-5: 280 50% 60%;
+  }
+
+  .dark {
+    --background: 200 35% 8%;
+    --foreground: 150 30% 96%;
+    --card: 200 30% 11%;
+    --card-foreground: 150 30% 96%;
+    --popover: 200 30% 11%;
+    --popover-foreground: 150 30% 96%;
+    --primary: 152 52% 48%;
+    --primary-foreground: 200 35% 8%;
+    --secondary: 200 30% 18%;
+    --secondary-foreground: 199 60% 85%;
+    --muted: 200 25% 16%;
+    --muted-foreground: 200 15% 65%;
+    --accent: 199 65% 55%;
+    --accent-foreground: 200 35% 8%;
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 200 25% 20%;
+    --input: 200 25% 20%;
+    --ring: 152 52% 48%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: 'cv11', 'ss01';
+  }
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-pretty {
+    text-wrap: pretty;
+  }
+}
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Page transition */
+.page-enter {
+  animation: pageEnter 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@keyframes pageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Subtle floating animation for hero illustration */
+.float-slow {
+  animation: floatSlow 6s ease-in-out infinite;
+}
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .page-enter,
+  .float-slow {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
