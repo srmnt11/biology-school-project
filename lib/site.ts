@@ -96,6 +96,7 @@ export const topics: TopicMeta[] = [
       'A guided tour of the major organelles found in a typical animal cell.',
     sections: [
       { id: 'overview', label: 'Overview' },
+      { id: '3d-model', label: '3D Model' }, 
       { id: 'organelles', label: 'Organelles' },
       { id: 'structure', label: 'Structure' },
       { id: 'function', label: 'Function' },
@@ -114,6 +115,7 @@ export const topics: TopicMeta[] = [
       'Explore the cell wall, chloroplasts, and large central vacuole.',
     sections: [
       { id: 'overview', label: 'Overview' },
+       { id: '3d-model', label: '3D Model' },  
       { id: 'organelles', label: 'Organelles' },
       { id: 'cell-wall', label: 'Cell Wall' },
       { id: 'chloroplasts', label: 'Chloroplasts' },

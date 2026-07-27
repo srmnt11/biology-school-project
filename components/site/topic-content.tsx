@@ -7,6 +7,7 @@ import {
   AccordionTrigger,
   AccordionContent,
 } from '@/components/ui/accordion';
+import { Cell3DViewer } from '@/components/site/cell-3d-viewer';
 import type { TopicMeta } from '@/lib/site';
 
 const placeholderImg = (q: string) =>
@@ -23,50 +24,60 @@ const images = [
 export function TopicContent({ topic }: { topic: TopicMeta }) {
   return (
     <>
-      {topic.sections.map((section, i) => (
-        <ContentCard
-          key={section.id}
-          id={section.id}
-          eyebrow={`Section ${i + 1}`}
-          title={section.label}
-          image={placeholderImg(images[i % images.length])}
-          imageAlt={`${section.label} — placeholder illustration`}
-        >
-          <p>
-            This is a placeholder paragraph for the{' '}
-            <strong>{section.label}</strong> section of{' '}
-            <strong>{topic.title}</strong>. Replace it with real biology
-            content describing the key ideas, structures, and functions
-            relevant to this section.
-          </p>
-          <p>
-            Keep the explanation concise and approachable. Use a second
-            paragraph to add context, an example, or a connection to another
-            topic. The layout, spacing, and components are already in place.
-          </p>
+      {topic.sections.map((section, i) => {
+        if (section.id === '3d-model') {
+          return (
+            <ContentCard key={section.id} id={section.id} eyebrow={`Section ${i + 1}`} title={section.label}>
+              <p>Rotate, zoom, and click on the organelles below to explore the structure interactively.</p>
+              <Cell3DViewer lockType={topic.slug === 'animal-cell' ? 'animal' : 'plant'} />
+            </ContentCard>
+          );
+        }
+        return (
+          <ContentCard
+            key={section.id}
+            id={section.id}
+            eyebrow={`Section ${i + 1}`}
+            title={section.label}
+            image={placeholderImg(images[i % images.length])}
+            imageAlt={`${section.label} — placeholder illustration`}
+          >
+            <p>
+              This is a placeholder paragraph for the{' '}
+              <strong>{section.label}</strong> section of{' '}
+              <strong>{topic.title}</strong>. Replace it with real biology
+              content describing the key ideas, structures, and functions
+              relevant to this section.
+            </p>
+            <p>
+              Keep the explanation concise and approachable. Use a second
+              paragraph to add context, an example, or a connection to another
+              topic. The layout, spacing, and components are already in place.
+            </p>
 
-          {i === 0 && (
-            <InformationBox
-              variant="info"
-              icon={<Info className="h-5 w-5" />}
-              title="Overview"
-            >
-              This callout box is a reusable component. Use it to highlight the
-              single most important takeaway of the section.
-            </InformationBox>
-          )}
-          {i === 1 && (
-            <InformationBox
-              variant="tip"
-              icon={<Lightbulb className="h-5 w-5" />}
-              title="Tip"
-            >
-              Drop study tips or mnemonics here to help learners remember the
-              key structures.
-            </InformationBox>
-          )}
-        </ContentCard>
-      ))}
+            {i === 0 && (
+              <InformationBox
+                variant="info"
+                icon={<Info className="h-5 w-5" />}
+                title="Overview"
+              >
+                This callout box is a reusable component. Use it to highlight the
+                single most important takeaway of the section.
+              </InformationBox>
+            )}
+            {i === 1 && (
+              <InformationBox
+                variant="tip"
+                icon={<Lightbulb className="h-5 w-5" />}
+                title="Tip"
+              >
+                Drop study tips or mnemonics here to help learners remember the
+                key structures.
+              </InformationBox>
+            )}
+          </ContentCard>
+        );
+      })}
 
       {/* Accordion placeholder */}
       <ContentCard id="key-terms" eyebrow="Review" title="Key terms">

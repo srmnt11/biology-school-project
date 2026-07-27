@@ -13,11 +13,11 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://biolearn.example.com'),
-  title: 'Biology Project',
+  title: 'Biology Group 3',
   description:
     'A modern educational platform exploring cells and tissues through clean, interactive lessons.',
   openGraph: {
-    title: 'BioLearn — Explore the Living World',
+    title: 'Explore the Living World',
     description:
       'A modern educational platform exploring cells and tissues through clean, interactive lessons.',
     images: [{ url: 'https://bolt.new/static/og_default.png' }],
