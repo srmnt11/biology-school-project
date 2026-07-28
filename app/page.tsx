@@ -2,12 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import {
   ArrowRight,
-  Sparkles,
   Microscope,
-  BookOpen,
-  Users,
-  GraduationCap,
-  Lightbulb,
   Info,
   Lightbulb as TipIcon,
 } from 'lucide-react';
@@ -64,7 +59,7 @@ export default function Home() {
               Explore the living world, one cell at a time.
             </h1>
             <p className="mt-5 max-w-xl text-lg leading-relaxed text-muted-foreground text-pretty">
-              Replace this text with a compelling description of your biology project.
+              From the organelles humming inside a single cell to the tissues that build entire organs, this project breaks biology down into clear, connected lessons — including an interactive 3D model you can rotate, zoom, and click through yourself.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
@@ -88,26 +83,13 @@ export default function Home() {
               <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-primary/15 via-accent/10 to-transparent" />
               <div className="float-slow relative h-full w-full">
                 <Image
-                  src="https://images.pexels.com/photos/3825529/pexels-photo-3825529.jpeg?auto=compress&cs=tinysrgb&w=900"
+                  src="images/home-cell.jpeg"
                   alt="Microscope view of cells — placeholder biology illustration"
                   fill
                   priority
                   sizes="(max-width: 1024px) 90vw, 40vw"
                   className="rounded-[2rem] object-cover shadow-xl ring-1 ring-border"
                 />
-              </div>
-              <div className="absolute -bottom-4 -left-4 flex items-center gap-2 rounded-2xl border border-border bg-card/95 px-4 py-3 shadow-lg backdrop-blur">
-                <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                  <Microscope className="h-5 w-5" />
-                </span>
-                <div>
-                  <p className="text-xs font-semibold text-foreground">
-                    Live preview
-                  </p>
-                  <p className="text-xs text-muted-foreground">
-                    Placeholder illustration
-                  </p>
-                </div>
               </div>
             </div>
           </div>
@@ -144,29 +126,6 @@ export default function Home() {
               />
             );
           })}
-        </div>
-      </section>
-
-      {/* Callout band */}
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="reveal grid gap-4 rounded-2xl border border-border bg-secondary/40 p-6 sm:p-8 md:grid-cols-2">
-          <InformationBox
-            variant="tip"
-            icon={<TipIcon className="h-5 w-5" />}
-            title="How to use this site"
-          >
-            Topics build on each other. Follow the roadmap below for the
-            recommended order, or jump straight to any topic from the cards
-            above.
-          </InformationBox>
-          <InformationBox
-            variant="note"
-            icon={<Info className="h-5 w-5" />}
-            title="Placeholder content"
-          >
-            All text and images are placeholders. Replace them with real
-            biology content without touching the layout.
-          </InformationBox>
         </div>
       </section>
 

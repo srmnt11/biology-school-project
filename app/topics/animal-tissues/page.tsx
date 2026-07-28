@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 import { TopicLayout } from '@/components/site/topic-layout';
-import { TopicContent } from '@/components/site/topic-content';
 import { getTopic } from '@/lib/site';
+import { AnimalTissuesContent } from '@/components/site/topics/animal-tissues-content';
 
 export function generateStaticParams() {
   return [{ slug: 'animal-tissues' }];
@@ -12,7 +12,7 @@ export default function Page() {
   if (!topic) notFound();
   return (
     <TopicLayout topic={topic}>
-      <TopicContent topic={topic} />
+      <AnimalTissuesContent />
     </TopicLayout>
   );
 }

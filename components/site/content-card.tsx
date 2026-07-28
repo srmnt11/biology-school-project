@@ -36,13 +36,15 @@ export function ContentCard({
         {title}
       </h2>
       {image && (
-        <div className="relative mt-5 aspect-[16/9] overflow-hidden rounded-xl bg-muted">
+        <div className="relative mt-5 overflow-hidden rounded-xl bg-muted">
           <Image
             src={image}
             alt={imageAlt}
-            fill
+            width={1200}
+            height={800}
+            // Remove fill, use explicit dimensions
+            className="h-auto w-full object-cover"
             sizes="(max-width: 768px) 100vw, 60vw"
-            className="object-cover"
           />
         </div>
       )}

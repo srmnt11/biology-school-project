@@ -89,7 +89,7 @@ export function TopicContent({ topic }: { topic: TopicMeta }) {
                 {t}
               </AccordionTrigger>
               <AccordionContent className="text-sm text-muted-foreground">
-                Placeholder definition for {t}. Replace with a concise,
+                SEXXXXX {t}. Replace with a concise,
                 accurate explanation of the term.
               </AccordionContent>
             </AccordionItem>

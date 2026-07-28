@@ -10,7 +10,7 @@ type ReferenceCardProps = {
   source: string;
   year: string;
   type: string;
-  image: string;
+  image?: string;  // Made optional with ?
   className?: string;
 };
 
@@ -30,19 +30,30 @@ export function ReferenceCard({
         className
       )}
     >
-      <div className="relative aspect-[16/9] overflow-hidden bg-muted">
-        <Image
-          src={image}
-          alt=""
-          fill
-          sizes="(max-width: 768px) 100vw, 33vw"
-          className="object-cover transition-transform duration-500 group-hover:scale-105"
-        />
-        <span className="absolute left-3 top-3 rounded-full bg-background/90 px-2.5 py-1 text-xs font-medium text-foreground shadow-sm backdrop-blur">
-          {type}
-        </span>
-      </div>
-      <div className="flex flex-1 flex-col p-5">
+      {image && (  // Only render image container if image exists
+        <div className="relative aspect-[16/9] overflow-hidden bg-muted">
+          <Image
+            src={image}
+            alt=""
+            fill
+            sizes="(max-width: 768px) 100vw, 33vw"
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+          <span className="absolute left-3 top-3 rounded-full bg-background/90 px-2.5 py-1 text-xs font-medium text-foreground shadow-sm backdrop-blur">
+            {type}
+          </span>
+        </div>
+      )}
+      <div className={cn(
+        "flex flex-1 flex-col p-5",
+        !image && "pt-5" // Add padding top when no image
+      )}>
+        {/* Move type badge to top of text section when no image */}
+        {!image && (
+          <span className="mb-2 inline-block rounded-full bg-primary/10 px-2.5 py-1 text-xs font-medium text-primary">
+            {type}
+          </span>
+        )}
         <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
           {source} · {year}
         </p>

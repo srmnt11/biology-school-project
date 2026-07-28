@@ -12,7 +12,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://biolearn.example.com'),
+  metadataBase: new URL('https://your-domain.com'), // Replace with your actual domain
   title: 'Biology Group 3',
   description:
     'A modern educational platform exploring cells and tissues through clean, interactive lessons.',
@@ -20,11 +20,12 @@ export const metadata: Metadata = {
     title: 'Explore the Living World',
     description:
       'A modern educational platform exploring cells and tissues through clean, interactive lessons.',
-    images: [{ url: 'https://bolt.new/static/og_default.png' }],
+    // Add your own OG image if you have one
+    // images: [{ url: '/images/og-image.png' }],
   },
   twitter: {
     card: 'summary_large_image',
-    images: [{ url: 'https://bolt.new/static/og_default.png' }],
+    // images: [{ url: '/images/og-image.png' }],
   },
 };
 

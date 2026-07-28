@@ -12,14 +12,9 @@ export function Footer() {
               <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary text-primary-foreground">
                 <Leaf className="h-5 w-5" strokeWidth={2.2} />
               </span>
-              <span className="text-lg font-bold tracking-tight">
-                Bio<span className="text-primary">Learn</span>
-              </span>
             </Link>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground">
-              A modern educational platform exploring cells and tissues through
-              clean, interactive lessons. Content placeholders are ready to be
-              filled in.
+A modern educational platform exploring cells and tissues through clean, interactive lessons — from single-celled structures to full tissue systems.
             </p>
           </div>
 
